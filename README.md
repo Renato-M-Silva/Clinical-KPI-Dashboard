@@ -85,3 +85,81 @@ df["pain_improvement"] = df["pain_score_initial"] - df["pain_score_final"]
 df["mobility_gain"] = df["mobility_final"] - df["mobility_initial"]
 
 df["success"] = (df["mobility_gain"] > 20) & (df["pain_improvement"] > 2)
+```
+
+## SQL Transformations
+
+- The SQL script includes:
+- KPI calculations
+- Injury type grouping
+- Success classification
+
+```SQL
+SELECT
+    patient_id,
+    injury_type,
+    DATEDIFF(day, start_date, end_date) AS recovery_days,
+    (pain_score_initial - pain_score_final) AS pain_improvement,
+    (mobility_final - mobility_initial) AS mobility_gain,
+    sessions,
+    CASE 
+        WHEN (mobility_final - mobility_initial) > 20 
+         AND (pain_score_initial - pain_score_final) > 2
+        THEN 1 ELSE 0
+    END AS success
+FROM clinical_data;
+```
+
+## Power BI Dashboard
+The Power BI file (dashboard.pbix) includes:
+
+- KPI cards
+- Bar charts
+- Line charts
+- Scatter plots
+- Filters by injury type, gender, and age
+
+It provides a clear visual summary of patient outcomes and rehabilitation performance.
+
+## Data Storytelling
+Key insights extracted from the dashboard:
+
+- Patients with muscle injuries recover 18% faster than those with joint injuries.
+- Average pain reduction across all patients is 3.2 points.
+- Mobility improves by an average of 28 points during rehabilitation.
+- Rehabilitation success rate reaches 72%, with most successful cases requiring fewer than 12 sessions.
+- Higher initial mobility correlates with faster recovery, suggesting early functional capacity is a strong predictor of outcome.
+
+## Repository Structure
+
+```
+clinical-kpi-dashboard/
+│
+├── data/
+│   ├── clinical_data.csv
+│   └── README.md
+│
+├── notebooks/
+│   ├── data_cleaning.ipynb
+│   ├── analysis.ipynb
+│   └── visualizations.ipynb
+│
+├── powerbi/
+│   └── dashboard.pbix
+│
+├── src/
+│   └── etl_pipeline.py
+│
+├── README.md
+└── LICENSE
+```
+ 
+## License
+This project is released under the MIT License, allowing free use and adaptation for educational and professional purposes.
+
+## Author
+Renato Maciel da Silva <br>
+Healthcare Data Analyst | Biomedical Engineer <br>
+Porto Metropolitan Area, Portugal <br>
+GitHub: https://github.com/Renato-M-Silva   <br>
+LinkedIn: https://linkedin.com/in/renato-maciel-silva <br>

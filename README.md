@@ -134,6 +134,39 @@ The `.pbix` file is available in the `powerbi/` folder.
 
 ---
 
+## 📸 Dashboard Screenshots
+
+Below are key views of the Power BI dashboard included in this project.
+
+### 🧭 Overview Page
+The main KPI summary of the clinical dataset.
+
+![Dashboard Overview](screenshots/dashboard_overview.png)
+
+---
+
+### 🩺 Injury Type Analysis
+Average recovery days by injury type.
+
+![Injury Type Analysis](screenshots/dashboard_InjuryTypeAnalysis.png)
+
+---
+
+### 📈 Patient Evolution
+Pain and mobility progression throughout treatment.
+
+![Patient Evolution](screenshots/dashboard_PatientEvolution.png)
+
+---
+
+### ⚙️ Sessions Efficiency
+Relationship between number of sessions and recovery performance.
+
+![Sessions Efficiency](screenshots/dashboard_SessionsEfficiency.png)
+
+
+---
+
 ## 🔬 Key Insights
 
 - Muscle injuries recover faster and show higher mobility gains.  
